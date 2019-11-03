@@ -1,0 +1,58 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Gerenciamento de marcas</li>
+    </ol>
+  </nav>
+  <div class="container">
+    <div class="card list-brand">
+      <h5 class="card-header">Lista de marcas</h5>
+      <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Origem</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let brand of brands">
+                <td>{{brand.id}}</td>
+                <td>{{brand.name}}</td>
+                <td>{{brand.country}}</td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="edit(brand)">Editar</button>
+                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="delete(brand)">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  
+    <div class="card add-brand">
+        <h5 class="card-header">Adicionar/Atualizar marca</h5>
+        <div class="card-body">
+            <form id="add-form" (ngSubmit)="f.form.valid && save(f)" #f="ngForm" novalidate>
+              <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" [(ngModel)]="brand.name" id="name" name="name" #name="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
+                  <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                      <div *ngIf="name.errors.required">Nome é obrigatório</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="country">Origem</label>
+                  <input type="text" [(ngModel)]="brand.country" id="country" name="country" #country="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" placeholder="Digite o país de origem">
+                  <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
+                      <div *ngIf="country.errors.required">Origem é obrigatório</div>
+                  </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-add-brand">Salvar</button>
+              <button type="reset" class="btn btn-secondary btn-add-brand" (click)="cleanForm(f)">Cancelar</button>
+            </form>
+        </div>
+      </div>
+  </div>

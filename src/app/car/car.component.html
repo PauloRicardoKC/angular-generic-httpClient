@@ -1,0 +1,66 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Gerenciamento de carros</li>
+    </ol>
+  </nav>
+  <div class="container">
+    <div class="card list-car">
+      <h5 class="card-header">Lista de carros</h5>
+      <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Cor</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let car of cars">
+                <td>{{car.id}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.color}}</td>
+                <td>{{car.price | currency}}</td>
+                <td>
+                  <button type="button" class="btn btn-warning btn-sm" (click)="edit(car)">Editar</button>
+                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="delete(car)">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  
+    <div class="card add-car">
+        <h5 class="card-header">Adicionar/Atualizar carro</h5>
+        <div class="card-body">
+            <form id="add-form" (ngSubmit)="f.form.valid && save(f)" #f="ngForm" novalidate>
+              <div class="form-group">
+                  <label for="model">Modelo</label>
+                  <input type="text" [(ngModel)]="car.model" id="model" name="model" #model="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && model.invalid }" placeholder="Digite o modelo">
+                  <div *ngIf="f.submitted && model.invalid" class="invalid-feedback">
+                      <div *ngIf="model.errors.required">Modelo é obrigatório</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="color">Cor</label>
+                  <input type="text" [(ngModel)]="car.color" id="color" name="color" #color="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && color.invalid }" placeholder="Digite a cor">
+                  <div *ngIf="f.submitted && color.invalid" class="invalid-feedback">
+                      <div *ngIf="color.errors.required">Cor é obrigatória</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="price">Preço</label>
+                  <input type="number" [(ngModel)]="car.price" id="price" name="price" #price="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" placeholder="Digite o preço">
+                  <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+                      <div *ngIf="price.errors.required">Preço é obrigatório</div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+              <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
+            </form>
+        </div>
+      </div>
+  </div>

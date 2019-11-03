@@ -1,0 +1,61 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "model": "BMW X7",
+      "color": "Blue",
+      "price": 73900
+    },
+    {
+      "id": 2,
+      "model": "Jeep Compass",
+      "color": "Black",
+      "price": 30500
+    },
+    {
+      "id": 3,
+      "model": "Range Rover Velar",
+      "color": "White",
+      "price": 75000
+    },
+    {
+      "model": "Tucson",
+      "color": "Gray",
+      "price": 21850,
+      "id": 5
+    },
+    {
+      "model": "Mustang",
+      "color": "Red",
+      "price": 35630,
+      "id": 6
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Toyota",
+      "country": "Japão"
+    },
+    {
+      "id": 2,
+      "name": "Volkswagen",
+      "country": "Alemanha"
+    },
+    {
+      "id": 3,
+      "name": "Ford",
+      "country": "Estados Unidos"
+    },
+    {
+      "id": 4,
+      "name": "Hyundai",
+      "country": "Coreia do Sul"
+    },
+    {
+      "id": 5,
+      "name": "Honda",
+      "country": "Japão"
+    }
+  ]
+}
