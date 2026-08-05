@@ -39,14 +39,14 @@
                   <label for="name">Nome</label>
                   <input type="text" [(ngModel)]="brand.name" id="name" name="name" #name="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" placeholder="Digite o nome">
                   <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-                      <div *ngIf="name.errors.required">Nome é obrigatório</div>
+                      <div *ngIf="name.errors?.required">Nome é obrigatório</div>
                   </div>
               </div>
               <div class="form-group">
                   <label for="country">Origem</label>
                   <input type="text" [(ngModel)]="brand.country" id="country" name="country" #country="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" placeholder="Digite o país de origem">
                   <div *ngIf="f.submitted && country.invalid" class="invalid-feedback">
-                      <div *ngIf="country.errors.required">Origem é obrigatório</div>
+                      <div *ngIf="country.errors?.required">Origem é obrigatório</div>
                   </div>
               </div>
 

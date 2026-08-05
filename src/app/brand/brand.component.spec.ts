@@ -1,16 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { BrandService } from '../services/brand.service';
 import { BrandComponent } from './brand.component';
 
 describe('BrandComponent', () => {
   let component: BrandComponent;
   let fixture: ComponentFixture<BrandComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrandComponent ]
-    })
-    .compileComponents();
+      imports: [BrandComponent],
+      providers: [
+        {
+          provide: BrandService,
+          useValue: {
+            get: () => of([]),
+            create: () => of({}),
+            update: () => of({}),
+            delete: () => of({})
+          }
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

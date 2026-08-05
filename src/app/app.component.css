@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+}

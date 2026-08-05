@@ -1,20 +1,71 @@
-# Generic HttpClient Angular 8
-Consuming REST API with a generic HttpClient service.
-This project was generated with Angular CLI version 8.3.16.
+# Generic HTTP Client
 
-<h3>Setting the environment</h3>
-At the terminal, run the npm install command to restore the packages. If necessary, also run the command npm install -g json-server.
+A modern Angular application that consumes a REST API through a generic HttpClient service layer. The project includes CRUD screens for cars and brands, and was updated toward Angular 22 compatibility.
 
-<h3>Development server</h3>
-Run ng serve --open for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## Overview
 
-<h3>Simulate REST API</h3>
-Let's run json-server to simulate our REST API, open a new terminal and at the root of the project run the following command:
+This project demonstrates:
 
-json-server --watch src/assets/data/dbCars.json
+- A reusable generic base service for REST operations
+- Component-level CRUD flows for products and brands
+- Standalone Angular components
+- Router-based navigation with Angular 22-style configuration
+- Clean separation between models, services, and presentation
 
-<h3>Features</h3>
-<ul>
-  <li>HttpClient Generic Service (CRUD)</li>  
-  <li>HTTP verbs GET, POST, PUT, DELETE</li>
-</ul>
+## Requirements
+
+- Node.js 20+ recommended
+- npm 10+
+- Angular CLI 22.x
+
+## Installation
+
+```bash
+npm install
+```
+
+To simulate the REST API locally, run:
+
+```bash
+npm run api
+```
+
+## Development
+
+Start the app in development mode:
+
+```bash
+npm start
+```
+
+Then open:
+
+```text
+http://localhost:4200
+```
+
+## Production build
+
+```bash
+npm run build
+```
+
+## Tests
+
+```bash
+npm test
+```
+
+## Project structure
+
+- src/app/components: screens and presentations
+- src/app/services: HTTP and API access layer
+- src/app/models: typed data models
+- src/assets/data: mock data used by the local JSON API
+- src/environments: runtime configuration for dev/prod
+
+## Notes
+
+- The application intentionally uses a lightweight local JSON server for demo data.
+- This codebase was upgraded from legacy Angular patterns to current standalone component architecture and Angular 22-compatible configuration.
+- Some production optimization settings may need tuning depending on the Node.js version and target browser support matrix.
