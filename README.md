@@ -50,12 +50,6 @@ http://localhost:4200
 npm run build
 ```
 
-## Tests
-
-```bash
-npm test
-```
-
 ## Project structure
 
 - src/app/components: screens and presentations
